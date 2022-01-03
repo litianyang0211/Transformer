@@ -1,5 +1,5 @@
-from embeddings import Embeddings
-from positional_encoding import PositionalEncoding
+from Model.embeddings import Embeddings
+from Model.positional_encoding import PositionalEncoding
 import torch
 
 
