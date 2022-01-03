@@ -2,7 +2,6 @@ import copy
 import math
 import torch
 import torch.nn as nn
-import torch.nn.functional as f
 import numpy as np
 
 
@@ -25,7 +24,7 @@ def attention(query, key, value, attn_mask=None, dropout=None):
         scores.masked_fill_(attn_mask, -1e9)  # attn_mask是一个由True和False构成的张量
 
     # 对scores的最后一个维度执行softmax
-    attn = f.softmax(scores, dim=-1)
+    attn = nn.Softmax(dim=-1)(scores)
 
     # 使用dropout防止过拟合
     if dropout is not None:
