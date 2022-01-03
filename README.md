@@ -4,4 +4,6 @@
 
 * `Embeddings` and `PositionalEncoding` with example.
 
-* `MultiHeadAttention` in progress.
+* `MultiHeadAttention` with `Add & Norm`
+
+* Next: `PositionwiseFeedForward` with `Add & Norm`
