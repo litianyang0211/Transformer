@@ -7,7 +7,7 @@ class MultiHeadAttention(nn.Module):
         """
         :param embed_dim: 词嵌入的维度
         :param num_heads: 多头的数量
-        :param dropout:   一层神经元在每次迭代训练时不参与训练的概率
+        :param dropout:   在每次迭代训练时不参与训练的概率
         """
 
         super(MultiHeadAttention, self).__init__()

@@ -26,7 +26,7 @@ def attention(query, key, value, attn_mask=None, dropout=None):
     # 对scores的最后一个维度执行softmax
     attn = nn.Softmax(dim=-1)(scores)
 
-    # 使用dropout防止过拟合
+    # 使用nn.Dropout防止过拟合
     if dropout is not None:
         attn = dropout(attn)
 

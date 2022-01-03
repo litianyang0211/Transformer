@@ -7,7 +7,7 @@ class PositionalEncoding(nn.Module):
     def __init__(self, embed_dim, dropout=0.1, max_len=5000):
         """
         :param embed_dim: 词嵌入的维度
-        :param dropout:   一层神经元在每次迭代训练时不参与训练的概率
+        :param dropout:   在每次迭代训练时不参与训练的概率
         :param max_len:   提前准备好的序列的位置编码的长度
         """
 
