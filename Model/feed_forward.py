@@ -11,7 +11,7 @@ class PositionwiseFeedForward(nn.Module):
 
         super(PositionwiseFeedForward, self).__init__()
         self.embed_dim = embed_dim
-        self.fc = nn.Sequential(
+        self.ffn = nn.Sequential(
             nn.Linear(embed_dim, d_ff),
             nn.ReLU(),
             nn.Dropout(dropout),
@@ -24,5 +24,5 @@ class PositionwiseFeedForward(nn.Module):
         :return:  (batch_size, q_len, embed_dim)的张量
         """
 
-        return nn.LayerNorm(self.embed_dim)(self.fc(x) + x)
-        # return nn.LayerNorm(self.embed_dim).cuda()(self.fc(x) + x)
+        return nn.LayerNorm(self.embed_dim)(self.ffn(x) + x)
+        # return nn.LayerNorm(self.embed_dim).cuda()(self.ffn(x) + x)
