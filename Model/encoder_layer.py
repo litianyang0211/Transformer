@@ -1,5 +1,5 @@
 import torch.nn as nn
-from Model.feed_forward import PositionwiseFeedForward
+from Model.pos_feed_forward import PositionwiseFeedForward
 from Model.multi_head_attn import MultiHeadAttention
 
 
