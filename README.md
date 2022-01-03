@@ -6,4 +6,6 @@
 
 * `MultiHeadAttention` with `Add & Norm`
 
-* Next: `PositionwiseFeedForward` with `Add & Norm`
+* `PositionwiseFeedForward` with `Add & Norm`
+
+* Next: `EncoderLayer`, `Encoder`, `DecoderLayer` and `Decoder`
