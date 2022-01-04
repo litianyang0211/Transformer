@@ -4,16 +4,16 @@
 
 * `Embeddings` and `PositionalEncoding` with example.
 
-* `MultiHeadAttention` with `Add & Norm`
+* `MultiHeadAttention` with `Add & Norm`.
 
-* `PositionwiseFeedForward` with `Add & Norm`
+* `PositionwiseFeedForward` with `Add & Norm`.
 
-* `EncoderLayer` and `DecoderLayer`
+* `EncoderLayer` and `DecoderLayer`.
 
-* `Encoder` and `Decoder` - TODO: `vocab_size` is undefined
+* `Encoder` and `Decoder`. TODO: `vocab_size` is undefined
 
-* NEXT: `Generator`
+* NEXT: `Generator`.
 
-* NEXT: `EncoderDecoder`
+* NEXT: `EncoderDecoder`.
 
-* NEXT: Data
+* NEXT: Data.
