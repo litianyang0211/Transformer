@@ -20,9 +20,9 @@ class Encoder(nn.Module):
         """
 
         enc_outputs = self.pos_enc(self.src_emb(inputs))
-        pad_mask = padding_mask(inputs, inputs)
+        enc_mask = padding_mask(inputs, inputs)
 
         for layer in self.layers:
-            enc_outputs = layer(enc_outputs, pad_mask)
+            enc_outputs = layer(enc_outputs, enc_mask)
 
         return enc_outputs
