@@ -33,11 +33,16 @@ def attention(query, key, value, attn_mask=None, dropout=None):
     return torch.matmul(attn, value)  # -> (batch_size, head_num, q_len, d_v)
 
 
-def attn_subsequence_mask():
+def attention_mask(tgt):
     """
-    TODO: attn_subsequence_mask function
+    :param tgt: (batch_size, tgt_len)的张量
+    :return:    (
     """
-    return np.zeros(1)
+
+    attn_shape = (tgt.size(0), tgt.size(1), tgt.size(1))
+    attn_mask = np.triu(np.ones(attn_shape), k=1).astype("uint8")
+
+    return torch.from_numpy(attn_mask)
 
 
 def clones(module, n):
