@@ -33,16 +33,17 @@ def attention(query, key, value, attn_mask=None, dropout=None):
     return torch.matmul(attn, value)  # -> (batch_size, head_num, q_len, d_v)
 
 
-def attention_mask(tgt):
+def attention_mask(seq1, seq2):
     """
-    :param tgt: (batch_size, tgt_len)的张量
-    :return:    (
+    :param seq1: (batch_size, seq1_len)的张量
+    :param seq2: (batch_size, seq2_len)的张量
+    :return:     (batch_size, seq1_len, seq2_len)的张量
     """
 
-    attn_shape = (tgt.size(0), tgt.size(1), tgt.size(1))
-    attn_mask = np.triu(np.ones(attn_shape), k=1).astype("uint8")
+    attn_shape = (seq1.size(0), seq1.size(1), seq2.size(1))
+    attn_mask = np.triu(np.ones(attn_shape), k=1)
 
-    return torch.from_numpy(attn_mask)
+    return torch.from_numpy(attn_mask).bool()
 
 
 def clones(module, n):
