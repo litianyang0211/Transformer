@@ -19,7 +19,7 @@ class PositionwiseFeedForward(nn.Module):
         )
 
     def forward(self, inputs):
-        ""
+        """
         :param inputs: (batch_size, q_len, embed_dim)的张量
         :return:       (batch_size, q_len, embed_dim)的张量
         """
