@@ -15,8 +15,8 @@ class Embeddings(nn.Module):
 
     def forward(self, inputs):
         """
-        :param inputs: 形状为(batch_size, seq_len)的torch.LongTensor
-        :return:       (batch_size, seq_len, embed_dim)的张量
+        :param inputs: 形状为(batch_size, seq_len)的torch.LongTensor，seq_len为src_len或tgt_len
+        :return:       (batch_size, seq_len, embed_dim)的张量，seq_len为src_len或tgt_len
         """
 
         # nn.Embedding在初始化时，用的是xavier_uniform，而乘法运算是为了让最后分布的方差为1，
