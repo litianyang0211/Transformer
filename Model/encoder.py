@@ -16,7 +16,7 @@ class Encoder(nn.Module):
     def forward(self, inputs):
         """
         :param inputs: 形状为(batch_size, src_len)的torch.LongTensor
-        :return:
+        :return:       (batch_size, src_len, embed_dim)的张量
         """
 
         enc_outputs = self.pos_enc(self.src_emb(inputs))
