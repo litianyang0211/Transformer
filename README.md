@@ -8,4 +8,6 @@
 
 * `PositionwiseFeedForward` with `Add & Norm`
 
-* Next: `EncoderLayer`, `Encoder`, `DecoderLayer` and `Decoder`
+* `EncoderLayer` and `DecoderLayer`
+
+* `Encoder` and `Decoder`. TODO: `vocab_size` is undefined
