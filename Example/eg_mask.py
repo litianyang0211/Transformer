@@ -15,5 +15,5 @@ if __name__ == "__main__":
 
     # 当pad_mask和attn_mask相加时，需要mask的位置必然大于等于1，而其它位置为0，利用.gt可以生成只有True和False的矩阵，
     # 其中，需要mask的位置为True，不需要mask的位置为False
-    test = torch.gt((pad_mask+attn_mask), 0)
+    test = torch.gt(pad_mask+attn_mask, 0)
     print(test)
