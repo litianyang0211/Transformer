@@ -33,7 +33,7 @@ class MultiHeadAttention(nn.Module):
         :return:           (batch_size, q_len, embed_dim)的张量
         """
 
-        # 生成用于attention函数的mask矩阵
+        # 生成用于attention函数的mask张量
         if attn_mask is not None:
             # (batch_size, q_len, k_len) -.unsqueeze-> (batch_size, 1, q_len, k_len)
             # -.repeat-> (batch_size, num_heads, q_len, k_len)
