@@ -18,11 +18,11 @@ class PositionwiseFeedForward(nn.Module):
             nn.Linear(d_ff, embed_dim)
         )
 
-    def forward(self, x):
+    def forward(self, inputs):
         """
-        :param x: (batch_size, q_len, embed_dim)的张量
-        :return:  (batch_size, q_len, embed_dim)的张量
+        :param inputs: (batch_size, q_len, embed_dim)的张量
+        :return:       (batch_size, q_len, embed_dim)的张量
         """
 
-        return nn.LayerNorm(self.embed_dim)(self.ffn(x) + x)
-        # return nn.LayerNorm(self.embed_dim).cuda()(self.ffn(x) + x)
+        return nn.LayerNorm(self.embed_dim)(self.ffn(inputs) + inputs)
+        # return nn.LayerNorm(self.embed_dim).cuda()(self.ffn(inputs) + inputs)

@@ -22,11 +22,10 @@ class PositionalEncoding(nn.Module):
         pe = pe.unsqueeze(0)  # (max_len, embed_dim) -> (batch_size=1, max_len, embed_dim)
         self.register_buffer("pe", pe)
 
-    def forward(self, x):
+    def forward(self, inputs):
         """
-        :param x: Embeddings的词嵌入结果，为(batch_size, x_len, embed_dim)的张量
-        :return:  词嵌入加上位置编码的结果，为(batch_size, x_len, embed_dim)的张量
+        :param inputs: Embeddings的词嵌入结果，为(batch_size, seq_len, embed_dim)的张量
+        :return:       词嵌入加上位置编码的结果，为(batch_size, seq_len, embed_dim)的张量
         """
 
-        x = x + self.pe[:, :x.size(1), :]
-        return self.dropout(x)
+        return self.dropout(inputs + self.pe[:, :inputs.size(1), :])

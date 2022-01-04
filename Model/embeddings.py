@@ -10,15 +10,15 @@ class Embeddings(nn.Module):
         """
 
         super(Embeddings, self).__init__()
-        self.lut = nn.Embedding(vocab_size, embed_dim)  # lut即lookup table
+        self.lut = nn.Embedding(vocab_size, embed_dim)  # lut: lookup table
         self.embed_dim = embed_dim
 
-    def forward(self, x):
+    def forward(self, inputs):
         """
-        :param x: 形状为(batch_size, x_len)的torch.LongTensor
-        :return:  (batch_size, x_len, embed_dim)的张量
+        :param inputs: 形状为(batch_size, seq_len)的torch.LongTensor
+        :return:       (batch_size, seq_len, embed_dim)的张量
         """
 
         # nn.Embedding在初始化时，用的是xavier_uniform，而乘法运算是为了让最后分布的方差为1，
         # 使网络在训练时的收敛速度更快
-        return self.lut(x) * math.sqrt(self.embed_dim)
+        return self.lut(inputs) * math.sqrt(self.embed_dim)
