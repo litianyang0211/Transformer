@@ -8,7 +8,7 @@ import torch.nn as nn
 class Encoder(nn.Module):
     def __init__(self, layer, num_layers):
         super(Encoder, self).__init__()
-        self.src_emb = Embeddings(vocab_size, param.embed_dim)  # TODO: vocab_size未定义，来自数据集
+        self.src_emb = Embeddings(src_vocab_size, param.embed_dim)  # TODO: src_vocab_size未定义，来自数据集
         self.pos_enc = PositionalEncoding(param.embed_dim)
         self.layers = clones(layer, num_layers)
 
