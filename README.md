@@ -12,6 +12,8 @@
 
 * `Encoder` and `Decoder`. TODO: `vocab_size` is undefined.
 
-* NEXT: `Transformer`
+* `Transformer`. TODO: `vocab_size` is undefined.
+
+* NEXT: Train
 
 * NEXT: Data.
