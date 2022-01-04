@@ -24,8 +24,8 @@ class PositionalEncoding(nn.Module):
 
     def forward(self, inputs):
         """
-        :param inputs: Embeddings的词嵌入结果，为(batch_size, seq_len, embed_dim)的张量
-        :return:       词嵌入加上位置编码的结果，为(batch_size, seq_len, embed_dim)的张量
+        :param inputs: Embeddings的词嵌入结果，为(batch_size, seq_len, embed_dim)的张量，seq_len为src_len或tgt_len
+        :return:       词嵌入加上位置编码的结果，为(batch_size, seq_len, embed_dim)的张量，seq_len为src_len或tgt_len
         """
 
         return self.dropout(inputs + self.pe[:, :inputs.size(1), :])
