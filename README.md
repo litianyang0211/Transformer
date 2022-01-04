@@ -10,7 +10,7 @@
 
 * `EncoderLayer` and `DecoderLayer`.
 
-* `Encoder` and `Decoder`. TODO: `vocab_size` is undefined
+* `Encoder` and `Decoder`. TODO: `vocab_size` is undefined.
 
 * NEXT: `Generator`.
 
