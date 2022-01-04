@@ -1,4 +1,5 @@
 from Model.embeddings import Embeddings
+from Model.encoder_layer import EncoderLayer
 from Model.positional_encoding import PositionalEncoding
 from Model.utils import clones, padding_mask
 import Model.param as param
@@ -6,11 +7,11 @@ import torch.nn as nn
 
 
 class Encoder(nn.Module):
-    def __init__(self, layer, num_layers):
+    def __init__(self):
         super(Encoder, self).__init__()
         self.src_emb = Embeddings(src_vocab_size, param.embed_dim)  # TODO: src_vocab_size未定义，来自数据集
         self.pos_enc = PositionalEncoding(param.embed_dim)
-        self.layers = clones(layer, num_layers)
+        self.layers = clones(EncoderLayer(), param.num_layers)
 
     def forward(self, inputs):
         """
