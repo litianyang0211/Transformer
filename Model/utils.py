@@ -18,7 +18,7 @@ def attention(query, key, value, attn_mask=None, dropout=None):
     d_k = key.size(-1)  # d_k = d_q
     scores = torch.matmul(query, key.transpose(-2, -1)) / math.sqrt(d_k)  # -> (batch_size, head_num, q_len, k_len)
 
-    # 使用mask，对已经计算好的scores，按照mask矩阵填-1e9，
+    # 对已经计算好的scores，按照mask张量填入-1e9，
     # 这样在下一步在计算softmax时，被设置成-1e9的数对应的值可以被忽略
     if attn_mask is not None:
         scores.masked_fill_(attn_mask, -1e9)  # attn_mask是一个由True和False构成的张量
@@ -54,7 +54,7 @@ def padding_mask(q, k):
     """
     :param q: (batch_size, seq_len)的张量，seq_len为src_len或tgt_len
     :param k: (batch_size, seq_len)的张量，seq_len为src_len或tgt_len
-    :return:  ()
+    :return:  (batch_size, q_len, k_len)的张量，填充部分为True，非填充部分为False
     """
 
     batch_size, q_len = q.size()
