@@ -23,11 +23,13 @@ class Decoder(nn.Module):
         """
 
         dec_outputs = self.pos_enc(self.tgt_emb(dec_inputs))
-        pad_mask = padding_mask(dec_inputs, dec_inputs)  # .cuda()
-        attn_mask = attention_mask(dec_inputs)  # .cuda()
-        dec_mask = torch.gt(pad_mask+attn_mask, 0)  # .cuda()
+        dec_pad_mask = padding_mask(dec_inputs, dec_inputs)  # .cuda()
+        dec_attn_mask = attention_mask(dec_inputs, dec_inputs)  # .cuda()
+        dec_mask = torch.gt(dec_pad_mask+dec_attn_mask, 0)  # .cuda()
 
-        dec_enc_mask = padding_mask(dec_inputs, enc_inputs)
+        dec_enc_pad_mask = padding_mask(dec_inputs, enc_inputs)  # .cuda()
+        dec_enc_attn_mask = attention_mask(dec_inputs, enc_inputs)  # .cuda()
+        dec_enc_mask = torch.gt(dec_enc_pad_mask+dec_enc_attn_mask, 0)  # .cuda()
 
         for layer in self.layers:
             dec_outputs = layer(dec_inputs, enc_outputs, dec_mask, dec_enc_mask)
