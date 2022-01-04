@@ -33,13 +33,6 @@ def attention(query, key, value, attn_mask=None, dropout=None):
     return torch.matmul(attn, value)  # -> (batch_size, head_num, q_len, d_v)
 
 
-def attn_pad_mask():
-    """
-    TODO: attn_pad_mask function
-    """
-    return np.zeros(1)
-
-
 def attn_subsequence_mask():
     """
     TODO: attn_subsequence_mask function
@@ -55,3 +48,18 @@ def clones(module, n):
     """
 
     return nn.ModuleList([copy.deepcopy(module) for _ in range(n)])
+
+
+def padding_mask(q, k):
+    """
+    :param q: (batch_size, seq_len)的张量，seq_len为src_len或tgt_len
+    :param k: (batch_size, seq_len)的张量，seq_len为src_len或tgt_len
+    :return:  ()
+    """
+
+    batch_size, q_len = q.size()
+    k_len = k.size(1)
+
+    # .eq(0)判断某个位置的值是否等于0
+    # (batch_size, k_len) -.unsqueeze(1)-> (batch_size, 1, k_len) -.expand-> (batch_size, q_len, k_len)
+    return k.data.eq(0).unsqueeze(1).expand(batch_size, q_len, k_len)
