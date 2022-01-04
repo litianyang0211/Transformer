@@ -12,8 +12,6 @@
 
 * `Encoder` and `Decoder`. TODO: `vocab_size` is undefined.
 
-* NEXT: `Generator`.
-
-* NEXT: `EncoderDecoder`.
+* NEXT: `Transformer`
 
 * NEXT: Data.
