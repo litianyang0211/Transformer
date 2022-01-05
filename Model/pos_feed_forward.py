@@ -1,21 +1,15 @@
+import param
 import torch.nn as nn
 
 
 class PositionwiseFeedForward(nn.Module):
-    def __init__(self, embed_dim, d_ff, dropout=0.1):
-        """
-        :param embed_dim: 词嵌入的维度
-        :param d_ff:      中间隐单元的个数
-        :param dropout:   在每次迭代训练时不参与训练的概率
-        """
-
+    def __init__(self):
         super(PositionwiseFeedForward, self).__init__()
-        self.embed_dim = embed_dim
         self.ffn = nn.Sequential(
-            nn.Linear(embed_dim, d_ff),
+            nn.Linear(param.embed_dim, param.d_ff),
             nn.ReLU(),
-            nn.Dropout(dropout),
-            nn.Linear(d_ff, embed_dim)
+            nn.Dropout(param.dropout),
+            nn.Linear(param.d_ff, param.embed_dim)
         )
 
     def forward(self, inputs):
@@ -24,5 +18,5 @@ class PositionwiseFeedForward(nn.Module):
         :return:       (batch_size, q_len, embed_dim)的张量
         """
 
-        return nn.LayerNorm(self.embed_dim)(self.ffn(inputs) + inputs)
-        # return nn.LayerNorm(self.embed_dim).cuda()(self.ffn(inputs) + inputs)
+        return nn.LayerNorm(param.embed_dim)(self.ffn(inputs) + inputs)
+        # return nn.LayerNorm(param.embed_dim).cuda()(self.ffn(inputs) + inputs)

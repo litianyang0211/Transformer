@@ -9,7 +9,7 @@ class Transformer(nn.Module):
         super(Transformer, self).__init__()
         self.encoder = Encoder()  # .cuda()
         self.decoder = Decoder()  # .cuda()
-        self.linear = nn.Linear(param.embed_dim, tgt_vocab_size, bias=False)  # .cuda() TODO: tgt_vocab_size未定义，来自数据集
+        self.linear = nn.Linear(param.embed_dim, param.tgt_vocab_size, bias=False)
 
     def forward(self, enc_inputs, dec_inputs):
         """

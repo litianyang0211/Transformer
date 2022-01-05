@@ -1,15 +1,14 @@
 from Model.pos_feed_forward import PositionwiseFeedForward
 from Model.multi_head_attn import MultiHeadAttention
-import Model.param as param
 import torch.nn as nn
 
 
 class DecoderLayer(nn.Module):
     def __init__(self):
         super(DecoderLayer, self).__init__()
-        self.dec_attn = MultiHeadAttention(param.embed_dim, param.num_heads)
-        self.dec_enc_attn = MultiHeadAttention(param.embed_dim, param.num_heads)
-        self.pff = PositionwiseFeedForward(param.embed_dim, param.d_ff)
+        self.dec_attn = MultiHeadAttention()
+        self.dec_enc_attn = MultiHeadAttention()
+        self.pff = PositionwiseFeedForward()
 
     def forward(self, dec_inputs, enc_outputs, dec_mask, dec_enc_mask):
         """
@@ -21,5 +20,5 @@ class DecoderLayer(nn.Module):
         """
 
         dec_outputs = self.dec_attn(dec_inputs, dec_inputs, dec_inputs, dec_mask)
-        dec_outputs = self.dec_attn(dec_outputs, enc_outputs, enc_outputs, dec_enc_mask)
+        dec_outputs = self.dec_enc_attn(dec_outputs, enc_outputs, enc_outputs, dec_enc_mask)
         return self.pff(dec_outputs)

@@ -1,8 +1,7 @@
 import copy
-import math
+import numpy as np
 import torch
 import torch.nn as nn
-import numpy as np
 
 
 def attention(query, key, value, attn_mask=None, dropout=None):
@@ -16,7 +15,7 @@ def attention(query, key, value, attn_mask=None, dropout=None):
     """
 
     d_k = key.size(-1)  # d_k = d_q
-    scores = torch.matmul(query, key.transpose(-2, -1)) / math.sqrt(d_k)  # -> (batch_size, head_num, q_len, k_len)
+    scores = torch.matmul(query, key.transpose(-2, -1)) / np.sqrt(d_k)  # -> (batch_size, head_num, q_len, k_len)
 
     # 对已经计算好的scores，按照mask张量填入-1e9，
     # 这样在下一步在计算softmax时，被设置成-1e9的数对应的值可以被忽略
@@ -30,7 +29,7 @@ def attention(query, key, value, attn_mask=None, dropout=None):
     if dropout is not None:
         attn = dropout(attn)
 
-    return torch.matmul(attn, value)  # -> (batch_size, head_num, q_len, d_v)
+    return torch.matmul(attn, value)
 
 
 def attention_mask(seq1, seq2):
