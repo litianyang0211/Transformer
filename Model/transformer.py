@@ -24,6 +24,5 @@ class Transformer(nn.Module):
         # (batch_size, tgt_len, embed_dim) -.Linear-> (batch_size, tgt_len, tgt_vocab_size)
         dec_logits = self.linear(dec_outputs)
 
-        # 利用.view将不同的句子合并为长句
-        # (batch_size, tgt_len, tgt_vocab_size) -.view-> (batch_size*tgt_len, tgt_vocab_size)
+        # 利用.view将不同句子合并为长句：(batch_size, tgt_len, tgt_vocab_size) -.view-> (batch_size*tgt_len, tgt_vocab_size)
         return dec_logits.view(-1, dec_logits.size(-1))
