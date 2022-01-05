@@ -1,6 +1,6 @@
 # Introduction
 
-本项目尝试使用**PyTorch**搭建一个Transformer模型，并给出尽可能详细的注释。在阅读代码之前，请先熟读经典论文[Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf)以及[关于Transformer的解释](https://l-ty.com/Compute_Science/Natural_Language_Processing/Transformer)。
+本项目使用**PyTorch**搭建Transformer模型，并给出尽可能详细的代码注释。在阅读代码之前，请先熟读经典论文[Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf)以及[关于Transformer的解释](https://l-ty.com/Compute_Science/Natural_Language_Processing/Transformer)。
 
 关于代码的细节，也可以参考[Transformer in PyTorch](https://l-ty.com/Compute_Science/PyTorch/Transformer_in_PyTorch)。
 
