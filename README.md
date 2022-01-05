@@ -24,6 +24,10 @@
 
 * `transformer.py`实现了整一个Transformer模型。
 
+# Usage
+
+* 运行`easy_example.py`即可训练一个简易的德英翻译模型。
+
 # TODO
 
 * 简易例子的测试
