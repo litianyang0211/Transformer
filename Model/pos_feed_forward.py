@@ -1,4 +1,4 @@
-import param
+import Model.param as param
 import torch.nn as nn
 
 
