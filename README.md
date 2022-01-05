@@ -1,19 +1,9 @@
-# Transformer
+# Introduction
 
-## 完成进度
+本项目尝试使用**PyTorch**搭建一个Transformer模型，并给出尽可能详细的注释。在阅读代码之前，请先熟读[Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf)
 
-* `Embeddings` and `PositionalEncoding` with example.
+# TODO
 
-* `MultiHeadAttention` with `Add & Norm`.
+* 简易例子的测试
 
-* `PositionwiseFeedForward` with `Add & Norm`.
-
-* `EncoderLayer` and `DecoderLayer`.
-
-* `Encoder` and `Decoder`. TODO: `vocab_size` is undefined.
-
-* `Transformer`. TODO: `vocab_size` is undefined.
-
-* NEXT: Train
-
-* NEXT: Data.
+* 复杂例子
