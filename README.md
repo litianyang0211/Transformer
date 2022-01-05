@@ -34,4 +34,4 @@
 
 * 复杂例子
 
-* 更新[Transformer in PyTorch](https://l-ty.com/Compute_Science/PyTorch/Transformer_in_PyTorch)。
+* 更新[Transformer in PyTorch](https://l-ty.com/Compute_Science/PyTorch/Transformer_in_PyTorch)
